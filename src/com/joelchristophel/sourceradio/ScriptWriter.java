@@ -58,7 +58,7 @@ class ScriptWriter {
 		String ignoreBind = properties.get("ignore bind");
 		if (!ignoreBind.isEmpty()) {
 			if (isValidKey(ignoreBind)) {
-				fileText += "bind " + ignoreBind + " \"say_team !ignore\"" + System.lineSeparator();
+				fileText += "bind " + ignoreBind + " \"say !ignore\"" + System.lineSeparator();
 			} else {
 				throw new RuntimeException("The bind for the ignore command is not valid.");
 			}
@@ -66,7 +66,7 @@ class ScriptWriter {
 		String skipBind = properties.get("skip bind");
 		if (!skipBind.isEmpty()) {
 			if (isValidKey(skipBind)) {
-				fileText += "bind " + skipBind + " \"say_team !skip\"" + System.lineSeparator();
+				fileText += "bind " + skipBind + " \"say !skip\"" + System.lineSeparator();
 			} else {
 				throw new RuntimeException("The bind for the skip command is not valid.");
 			}
@@ -76,7 +76,7 @@ class ScriptWriter {
 			String instructionsBind = properties.get("instructions bind");
 			if (!instructionsBind.isEmpty()) {
 				if (isValidKey(instructionsBind)) {
-					fileText += "bind " + instructionsBind + " \"say_team " + instructions + "\""
+					fileText += "bind " + instructionsBind + " \"say " + instructions + "\""
 							+ System.lineSeparator();
 				} else {
 					throw new RuntimeException("The bind for the instructions command is not valid.");
@@ -158,7 +158,7 @@ class ScriptWriter {
 				songTitle = simplifySongTitle(song.getTitle());
 				requestedBy = "(Requested by " + song.getRequester().getUsername() + ")";
 			}
-			writer.write("say_team Current song: " + songTitle + " " + requestedBy);
+			writer.write("say Current song: " + songTitle + " " + requestedBy);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return;
